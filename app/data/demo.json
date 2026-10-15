@@ -1,0 +1,27 @@
+{
+  "repository": {
+    "full_name": "demo-labs/first-contribution-kit",
+    "description": "A fictional command-line starter project used for the RepoGuide offline demo.",
+    "default_branch": "main",
+    "html_url": "https://github.com/demo-labs/first-contribution-kit"
+  },
+  "issue": {
+    "title": "CLI greeting should support a custom name",
+    "body": "When I run the greeting command, it always prints Hello, world. Add an option to use a custom name. Expected behavior: `greet --name Ada` prints `Hello, Ada`. Please add a test for the custom name and keep the default greeting unchanged.",
+    "source_url": null
+  },
+  "readme": "# First Contribution Kit\n\nA fictional Python command-line project used only for the bundled RepoGuide offline demo.\n\nRun the greeting command with `python -m app.cli`. The current greeting is implemented in `src/cli.py`. Add regression coverage under `tests/` and see `CONTRIBUTING.md` for the project's contribution checklist.\n",
+  "files": {
+    "README.md": "# First Contribution Kit\n\nA fictional Python command-line project used only for the bundled RepoGuide offline demo.\n\nRun the greeting command with `python -m app.cli`. The current greeting is implemented in `src/cli.py`. Add regression coverage under `tests/` and see `CONTRIBUTING.md` for the project's contribution checklist.\n",
+    "src/cli.py": "def greet(name=\"world\"):\n    return f\"Hello, {name}\"\n\n\ndef main():\n    print(greet())\n",
+    "tests/test_cli.py": "from src.cli import greet\n\n\ndef test_greet_uses_default_name():\n    assert greet() == \"Hello, world\"\n",
+    "CONTRIBUTING.md": "# Contributing\n\nKeep changes focused and add a regression test for behavior changes.\n"
+  },
+  "file_paths": [
+    "README.md",
+    "src/cli.py",
+    "tests/test_cli.py",
+    "CONTRIBUTING.md"
+  ],
+  "mode": "offline-demo"
+}

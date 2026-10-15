@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>RepoGuide AI — contribution readiness</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="mark" aria-hidden="true">RG</div>
+      <div>
+        <p class="eyebrow">OPEN SOURCE, ONE STEP AT A TIME</p>
+        <h1>Find a confident first step.</h1>
+        <p class="lede">Turn an issue into an evidence-grounded contribution plan.</p>
+      </div>
+    </header>
+
+    <section class="panel form-panel" aria-labelledby="form-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">START HERE</p>
+          <h2 id="form-title">What are you looking at?</h2>
+        </div>
+        <span class="privacy-note">No account or API key needed</span>
+      </div>
+      <form id="analyze-form">
+        <label for="mode">Analysis mode</label>
+        <select id="mode" name="mode">
+          <option value="demo">Offline demo — bundled example, no network</option>
+          <option value="live">Live GitHub — fetch public repository data</option>
+        </select>
+
+        <div id="live-fields" class="live-fields" hidden>
+          <label for="issue-url">GitHub issue URL <span class="optional">or</span></label>
+          <input id="issue-url" name="issue_url" type="url" placeholder="https://github.com/owner/repo/issues/123">
+          <p class="field-help">Or enter a repository URL and provide the issue details below.</p>
+          <label for="repo-url">GitHub repository URL</label>
+          <input id="repo-url" name="repo_url" type="url" placeholder="https://github.com/owner/repo">
+          <label for="issue-title">Issue title <span class="optional">required with repository URL</span></label>
+          <input id="issue-title" name="issue_title" type="text" maxlength="300" placeholder="What needs to change?">
+          <label for="issue-body">Issue details</label>
+          <textarea id="issue-body" name="issue_body" rows="5" maxlength="12000" placeholder="Paste the issue description and any acceptance criteria."></textarea>
+        </div>
+
+        <label class="check-row" for="use-ai">
+          <input id="use-ai" type="checkbox" checked>
+          <span><strong>Use local Qwen via Ollama when available</strong><small>Only the issue title and description are sent to your local Ollama service. If it fails, deterministic analysis still works.</small></span>
+        </label>
+        <button id="submit-button" type="submit"><span>Build my readiness report</span><span aria-hidden="true">→</span></button>
+      </form>
+      <p id="error" class="error" role="alert" hidden></p>
+    </section>
+
+    <div id="loading" class="loading" role="status" hidden><span class="spinner"></span> Gathering evidence and checking the issue…</div>
+    <section id="report" aria-live="polite"></section>
+    <footer>RepoGuide AI · Suggestions are a starting point, not a substitute for repository guidance.</footer>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
